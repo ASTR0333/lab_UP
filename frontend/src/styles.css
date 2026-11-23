@@ -1,0 +1,144 @@
+:root {
+  color-scheme: light;
+  color: #151515;
+  background: #fff;
+  font-family: system-ui, sans-serif;
+  --line: #dedede;
+  --muted: #555;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; }
+
+.catalog {
+  width: min(100% - 3rem, 56rem);
+  margin: clamp(2rem, 8vw, 5.5rem) auto 4rem;
+}
+
+.catalog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid currentColor;
+}
+
+h1 {
+  margin: 0;
+  min-width: 0;
+}
+
+.catalog-logo {
+  display: block;
+  width: clamp(8rem, 32vw, 17rem);
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  min-width: 8rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #151515;
+  background: #151515;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) { background: #383838; }
+button:active:not(:disabled) { background: #555; }
+button:focus-visible { outline: 2px solid #151515; outline-offset: 4px; }
+button:disabled { background: #fff; color: var(--muted); cursor: not-allowed; }
+
+.secondary-button { background: #fff; color: #151515; }
+.secondary-button:hover:not(:disabled) { background: #f2f2f2; }
+.secondary-button:active:not(:disabled) { background: #e5e5e5; }
+
+.connection-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding-bottom: 1rem;
+}
+
+.connection-bar p { margin: 0; overflow-wrap: anywhere; }
+
+dialog {
+  width: min(calc(100% - 2rem), 28rem);
+  padding: clamp(1rem, 4vw, 1.75rem);
+  border: 1px solid #151515;
+  color: #151515;
+}
+
+dialog::backdrop { background: rgb(0 0 0 / 35%); }
+dialog h2 { margin: 0 0 1.25rem; font-size: 1.375rem; }
+dialog form, dialog label { display: grid; gap: 0.5rem; }
+dialog form { gap: 1rem; }
+dialog p { margin: 0; }
+
+dialog input:not([type='checkbox']), dialog select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.5rem;
+  border: 1px solid #777;
+  font: inherit;
+}
+
+.existing-photo { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.existing-photo img { width: 4rem; height: 4rem; object-fit: cover; }
+.existing-photo label { display: flex; align-items: center; }
+.dialog-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.dialog-actions button { min-width: auto; }
+
+.catalog-tools { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; align-items: start; }
+.catalog-tools button { min-width: auto; }
+.catalog-table { overflow-x: auto; }
+.catalog-table table { min-width: 37rem; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #151515;
+}
+
+th, td {
+  padding: 0.8rem 0.75rem;
+  border: 1px solid var(--line);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+th { background: #f2f2f2; border-bottom-color: #151515; font-size: 0.875rem; font-weight: 650; }
+td { line-height: 1.4; }
+th:first-child { width: 8%; }
+td:first-child:not([colspan]) { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+summary { cursor: pointer; }
+.export-menu summary { border: 1px solid #151515; padding: 0.58rem 0.8rem; min-height: 2.75rem; }
+.export-menu button, .row-menu button { display: block; width: 100%; min-width: auto; background: #fff; color: #151515; margin-top: 0.25rem; }
+.export-menu button:hover:not(:disabled), .row-menu button:hover:not(:disabled) { background: #eee; }
+.row-actions { min-width: 8rem; }
+.product-image { width: 2.5rem; height: 2.5rem; margin-right: 0.35rem; object-fit: cover; vertical-align: middle; }
+
+.chart-dialog { width: min(calc(100% - 2rem), 34rem); }
+.chart { display: grid; gap: 0.4rem; padding: 0; list-style: none; }
+.chart li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) 3rem; gap: 0.625rem; align-items: center; }
+.chart li > :last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.chart-axis { position: relative; height: 1.125rem; background: #f3f3f3; }
+.chart-axis::before { content: ''; position: absolute; inset-block: 0; left: 50%; border-left: 1px solid #777; }
+.chart-axis span { position: absolute; inset-block: 0.15rem; background: #151515; }
+.chart-negative { right: 50%; }
+.chart-positive { left: 50%; }
+
+.notice { margin: 1rem 0; }
+
+@media (max-width: 30rem) {
+  .catalog { width: calc(100% - 2rem); }
+  .catalog-header { padding-bottom: 1rem; }
+  th, td { padding-inline: 0.5rem; }
+}
